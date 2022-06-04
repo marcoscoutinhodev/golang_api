@@ -12,6 +12,8 @@ func AddTaskController(rw http.ResponseWriter, r *http.Request) {
 		rw.Header().Set("Allow", "Post")
 	}
 
+	rw.Header().Set("Content-Type", "application/json")
+
 	bodyDecoder := json.NewDecoder(r.Body)
 
 	var taskModel model.Task
