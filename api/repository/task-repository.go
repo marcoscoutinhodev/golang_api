@@ -38,3 +38,17 @@ func GetTasksRepository() (*sql.Rows, error) {
 
 	return rows, nil
 }
+
+func GetTaskByIdRepository(id int) (*sql.Row, error) {
+	db, err := database.Connection()
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer db.Close()
+
+	row := db.QueryRow("SELECT * FROM golang_db.tbTask t WHERE t.id = ?", id)
+
+	return row, nil
+}
