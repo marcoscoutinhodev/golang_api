@@ -52,3 +52,22 @@ func GetTaskByIdRepository(id int) (*sql.Row, error) {
 
 	return row, nil
 }
+
+func UpdateTaskRepository(task model.Task) error {
+	db, err := database.Connection()
+
+	if err != nil {
+		return err
+	}
+
+	defer db.Close()
+
+	stmt, _ := db.Prepare(`
+		UPDATE golang_db.tbTask
+		SET title = ?, description = ?, done = ?
+		WHERE id = ?
+	`)
+	stmt.Exec(task.Title, task.Description, task.Done, task.Id)
+
+	return nil
+}
