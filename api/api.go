@@ -8,7 +8,8 @@ import (
 
 func Server() {
 	srv := &http.Server{
-		Addr: ":4000",
+		Addr:    ":4000",
+		Handler: Routes(),
 	}
 
 	fmt.Println("Starting sever...")
