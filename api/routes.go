@@ -12,6 +12,7 @@ func Routes() *http.ServeMux {
 	mux.HandleFunc("/task/get", controller.GetTaskController)
 	mux.HandleFunc("/task/update", controller.UpdateTaskController)
 	mux.HandleFunc("/task/delete", controller.DeleteTaskController)
+	mux.HandleFunc("/task/toggle-done-field", controller.ToggleDoneFieldTaskController)
 
 	return mux
 }
