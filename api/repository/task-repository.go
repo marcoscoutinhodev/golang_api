@@ -71,3 +71,18 @@ func UpdateTaskRepository(task model.Task) error {
 
 	return nil
 }
+
+func DeleteTaskByIdRepository(id int) (sql.Result, error) {
+	db, err := database.Connection()
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer db.Close()
+
+	stmt, _ := db.Prepare("DELETE FROM golang_db.tbTask WHERE id = ?")
+	result, err := stmt.Exec(id)
+
+	return result, err
+}
