@@ -13,3 +13,5 @@
   - Deletar task por id: /POST http://127.0.0.1:4000/task/delete?id=<TASK_ID> | Informar o ID na query string
   - Alternar o campo 'done' de uma task por id: /POST http://127.0.0.1:4000/task/toggle-done-field?id=<TASK_ID> | Informar o ID na query string
   
+# Video:
+  - https://www.youtube.com/watch?v=TNHz5B4kTWQ
